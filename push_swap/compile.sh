@@ -1,1 +1,1 @@
-gcc src/*.c -I includes/ libft.a
+gcc src/*.c -I includes/ -I ../libft/ libft.a

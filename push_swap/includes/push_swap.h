@@ -19,6 +19,7 @@ typedef struct
 {
 	t_stack_list	*list;
 	int				len;
+	char			letter;
 }					t_stack;
 
 typedef struct
