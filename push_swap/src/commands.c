@@ -54,6 +54,7 @@ void	push(t_stack *stack, int value)
 	new->value = value;
 	new->next = stack->list;
 	stack->list = new;
+	stack->len++;
 }
 
 int		pop(t_stack *stack)
@@ -65,5 +66,6 @@ int		pop(t_stack *stack)
 	tmp = stack->list->next;
 	free(stack->list);
 	stack->list = tmp;
+	stack->len--;
 	return (value);
 }

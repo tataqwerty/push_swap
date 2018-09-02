@@ -1,11 +1,21 @@
 #include "push_swap.h"
 
-int 		main(int ac, char **av)
+void    router(t_main *main_s)
 {
-	t_main	*main_s;
+	if (main_s->flag_debug)
+	{
+		;
+	}
+	else
+		sort(main_s->stack_a, main_s->stack_b);
+}
+
+int     main(int ac, char *av[])
+{
+	t_main  *main_s;
 
 	main_s = init();
 	parsing(main_s, ac, av);
-	// sort(main_s);
+	router(main_s);
 	return (0);
 }

@@ -36,7 +36,7 @@ int			pop(t_stack *stack);
 void		swap(t_stack *stack);
 void		rotate(t_stack *stack);
 void		reverse_rotate(t_stack *stack);
-
-// void		sort(t_main_s *main_s);
+int			get_median(t_stack *stack);
+void		sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif
