@@ -6,7 +6,7 @@ void			ft_error(void)
 	exit(0);
 }
 
-static t_stack	*init_stack(char letter)
+static t_stack	*init_stack(void)
 {
 	t_stack	*stack;
 
@@ -14,7 +14,6 @@ static t_stack	*init_stack(char letter)
 	(!stack) ? ft_error() : 0;
 	stack->len = 0;
 	stack->list = NULL;
-	stack->letter = letter;
 	return (stack);
 }
 
@@ -24,9 +23,10 @@ t_main			*init(void)
 
 	main_s = (t_main *)malloc(sizeof(t_main));
 	(!main_s) ? ft_error() : 0;
+	main_s->stack_a = init_stack();
+	main_s->stack_b = init_stack();
 	main_s->flag_debug = 0;
-	main_s->stack_a = init_stack('a');
-	main_s->stack_b = init_stack('b');
+	main_s->flag_show_command = 1;
 	return (main_s);
 }
 
@@ -56,6 +56,7 @@ static void		push_back(t_stack *stack, int value)
 	new = (t_stack_list *)malloc(sizeof(t_stack_list));
 	(!new) ? ft_error() : 0;
 	new->value = value;
+	new->sorted = 0;
 	new->next = NULL;
 	if (tmp)
 		tmp->next = new;

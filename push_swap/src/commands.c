@@ -45,27 +45,42 @@ void	reverse_rotate(t_stack *stack)
 	}
 }
 
-void	push(t_stack *stack, int value)
+void	push(t_stack *dest, t_stack *src)
 {
-	t_stack_list *new;
+	t_stack_list *tmp;
 
-	new = (t_stack_list *)malloc(sizeof(t_stack_list));
-	(!new) ? ft_error() : 0;
-	new->value = value;
-	new->next = stack->list;
-	stack->list = new;
-	stack->len++;
+	if (src->len > 0)
+	{
+		tmp = src->list;
+		src->list = src->list->next;
+		src->len--;
+		tmp->next = dest->list;
+		dest->list = tmp;
+		dest->len++;
+	}
 }
 
-int		pop(t_stack *stack)
-{
-	t_stack_list	*tmp;
-	int	value;
+// void	push(t_stack *stack, int value)
+// {
+// 	t_stack_list *new;
 
-	value = stack->list->value;
-	tmp = stack->list->next;
-	free(stack->list);
-	stack->list = tmp;
-	stack->len--;
-	return (value);
-}
+// 	new = (t_stack_list *)malloc(sizeof(t_stack_list));
+// 	(!new) ? ft_error() : 0;
+// 	new->value = value;
+// 	new->next = stack->list;
+// 	stack->list = new;
+// 	stack->len++;
+// }
+
+// int		pop(t_stack *stack)
+// {
+// 	t_stack_list	*tmp;
+// 	int	value;
+
+// 	value = stack->list->value;
+// 	tmp = stack->list->next;
+// 	free(stack->list);
+// 	stack->list = tmp;
+// 	stack->len--;
+// 	return (value);
+// }

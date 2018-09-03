@@ -7,7 +7,7 @@ void    router(t_main *main_s)
 		;
 	}
 	else
-		sort(main_s->stack_a, main_s->stack_b);
+		sort(main_s);
 }
 
 int     main(int ac, char *av[])
