@@ -1,10 +1,5 @@
 #include "push_swap.h"
 
-static void	sort_router(t_main *main_s)
-{
-	ft_printf("Here actually executes a sort function.\n");
-}
-
 /*
 ** @param dest_counter - how many elements will be transferred to dest.
 ** @param back_counter - how many elements have been thrown to the end of stack_a after division.
@@ -31,7 +26,7 @@ static void	divide_stack(t_main *main_s, int piece_len, int median)
 			back_counter++;
 		}
 	}
-	if (back_counter != 0 && back_counter != piece_len)	// If there are elements have been thrown to the end of stack_a, return this elements to the initial position, if needed.
+	if (back_counter != 0 && back_counter != main_s->stack_a->len)	// If there are elements have been thrown to the end of stack_a, return this elements to the initial position, if needed.
 		while (back_counter-- > 0)
 			operation("rra", main_s);
 }
@@ -65,6 +60,16 @@ static int	length_of_unsorted_part(t_stack *stack)
 	return (quantity);
 }
 
+static void	assign_sorted(t_stack_list *elem, int piece_len)
+{
+	while (piece_len > 0)
+	{
+		elem->sorted = 1;
+		elem = elem->next;
+		piece_len--;
+	}
+}
+
 /*
 ** @param piece_len - represents length of unsorted part of the stack_a.
 */
@@ -80,8 +85,8 @@ void	sort(t_main *main_s)
 	// ft_printf("median = %d\n", median);
 	if (piece_len <= 3)
 	{
-		sort_router(main_s);
-		// assign every element of piece flag sorted to 1.
+		sort_router(main_s, piece_len);
+		assign_sorted(main_s->stack_a->list, piece_len);
 		return ;
 	}
 	divide_stack(main_s, piece_len, median);

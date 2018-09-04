@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 /*
-** This function here because I don't want to create a new file operation_functions_3.c just for a single function.
+** This function here because I don't want to crenew fiate a le operation_functions_3.c just for a single function.
 */
 
 void	rrr(t_main *main_s)

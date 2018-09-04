@@ -23,7 +23,7 @@ static int	get_max_len_num(t_stack_list *elem)
 			max_len_num = tmp_len_num;
 		elem = elem->next;
 	}
-	return (0);
+	return (max_len_num);
 }
 
 void		output_stacks(t_stack_list *elem_a, t_stack_list *elem_b, int a_len, int b_len)
@@ -51,5 +51,5 @@ void		output_stacks(t_stack_list *elem_a, t_stack_list *elem_b, int a_len, int b
 		a_len--;
 		b_len--;
 	}
-	ft_printf("%-*s -\n%-*s b\n\n", max_len_num, "-", max_len_num, "a");
+	ft_printf("%-*s _\n%-*s b\n\n", max_len_num, "_", max_len_num, "a");
 }
