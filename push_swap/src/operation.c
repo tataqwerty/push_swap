@@ -1,56 +1,8 @@
 #include "push_swap.h"
 
-void	sa(t_main *main_s)
-{
-	swap(main_s->stack_a);
-}
-
-void	sb(t_main *main_s)
-{
-	swap(main_s->stack_b);
-}
-
-void	ss(t_main *main_s)
-{
-	swap(main_s->stack_a);
-	swap(main_s->stack_b);
-}
-
-void	pa(t_main *main_s)
-{
-	push(main_s->stack_a, main_s->stack_b);
-}
-
-void	pb(t_main *main_s)
-{
-	push(main_s->stack_b, main_s->stack_a);
-}
-
-void	ra(t_main *main_s)
-{
-	rotate(main_s->stack_a);
-}
-
-void	rb(t_main *main_s)
-{
-	rotate(main_s->stack_b);
-}
-
-void	rr(t_main *main_s)
-{
-	rotate(main_s->stack_a);
-	rotate(main_s->stack_b);
-}
-
-void	rra(t_main *main_s)
-{
-	reverse_rotate(main_s->stack_a);
-}
-
-void	rrb(t_main *main_s)
-{
-	reverse_rotate(main_s->stack_b);
-}
+/*
+** This function here because I don't want to create a new file operation_functions_3.c just for a single function.
+*/
 
 void	rrr(t_main *main_s)
 {
@@ -58,10 +10,12 @@ void	rrr(t_main *main_s)
 	reverse_rotate(main_s->stack_b);
 }
 
-void	output_stacks(t_main *main_s)
-{
-
-}
+/*
+** Operations for this function are in two files: operation_functions_1.c and operation_functions_2.c
+**
+** This function shows name of operation which it fulfills just in case if flag_show_command is ON.
+** This function output_stacks just in case if flag_debug is ON.
+*/
 
 void	operation(char *op_name, t_main *main_s)
 {
@@ -81,7 +35,8 @@ void	operation(char *op_name, t_main *main_s)
 			if (main_s->flag_show_command)
 				ft_printf("%s\n", op_name);
 			if (main_s->flag_debug)
-				output_stacks(main_s);
+				output_stacks(main_s->stack_a->list, main_s->stack_b->list,
+				main_s->stack_a->len, main_s->stack_b->len);
 			return ;
 		}
 		i++;

@@ -59,28 +59,3 @@ void	push(t_stack *dest, t_stack *src)
 		dest->len++;
 	}
 }
-
-// void	push(t_stack *stack, int value)
-// {
-// 	t_stack_list *new;
-
-// 	new = (t_stack_list *)malloc(sizeof(t_stack_list));
-// 	(!new) ? ft_error() : 0;
-// 	new->value = value;
-// 	new->next = stack->list;
-// 	stack->list = new;
-// 	stack->len++;
-// }
-
-// int		pop(t_stack *stack)
-// {
-// 	t_stack_list	*tmp;
-// 	int	value;
-
-// 	value = stack->list->value;
-// 	tmp = stack->list->next;
-// 	free(stack->list);
-// 	stack->list = tmp;
-// 	stack->len--;
-// 	return (value);
-// }

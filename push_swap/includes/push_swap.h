@@ -48,12 +48,27 @@ typedef struct
 t_main		*init(void);
 void		ft_error(void);
 void		parsing(t_main *main_s, int ac, char **av);
+int			get_median(t_stack *stack, int piece_len);
+void		sort(t_main *main_s);
+void		operation(char *op_name, t_main *main_s);
+void		output_stacks(t_stack_list *elem_a, t_stack_list *elem_b, int a_len, int b_len);
+
 void		push(t_stack *dest, t_stack *src);
 void		swap(t_stack *stack);
 void		rotate(t_stack *stack);
 void		reverse_rotate(t_stack *stack);
-int			get_median(t_stack *stack, int piece_len);
-void		sort(t_main *main_s);
-void		operation(char *op_name, t_main *main_s);
+
+void	sa(t_main *main_s);
+void	sb(t_main *main_s);
+void	ss(t_main *main_s);
+void	pa(t_main *main_s);
+void	pb(t_main *main_s);
+void	ra(t_main *main_s);
+void	rb(t_main *main_s);
+void	rr(t_main *main_s);
+void	rra(t_main *main_s);
+void	rrb(t_main *main_s);
+void	rrr(t_main *main_s);
+
 
 #endif
