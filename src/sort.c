@@ -1,37 +1,6 @@
 #include "push_swap.h"
 
 /*
-** @param dest_counter - how many elements will be transferred to dest.
-** @param back_counter - how many elements have been thrown to the end of stack_a after division.
-*/
-
-static void	divide_stack(t_main *main_s, int piece_len, int median)
-{
-	int				dest_counter;
-	int				back_counter;
-
-	back_counter = 0;
-	dest_counter = piece_len / 2;
-	while (dest_counter > 0)
-	{
-		if (main_s->stack_a->list->value < median)	// If first elem of stack_a has a value that lower than median => throw this elem to stack_b.
-		{
-			operation("pb", main_s);
-			dest_counter--;
-			piece_len--;
-		}
-		else
-		{
-			operation("ra", main_s);
-			back_counter++;
-		}
-	}
-	if (back_counter != 0 && back_counter != main_s->stack_a->len)	// If there are elements have been thrown to the end of stack_a, return this elements to the initial position, if needed.
-		while (back_counter-- > 0)
-			operation("rra", main_s);
-}
-
-/*
 ** This function returns unsorted part from stack_b.
 */
 

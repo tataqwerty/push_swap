@@ -70,6 +70,8 @@ void		sort(t_main *main_s);
 void		operation(char *op_name, t_main *main_s);
 void		output_stacks(t_stack_list *elem_a, t_stack_list *elem_b, int a_len, int b_len);
 void		sort_router(t_main *main_s, int piece_len);
+void		divide_stack(t_main *main_s, int piece_len, int median);
+
 
 /*
 ** Main stacks commands that will be used by operations such as sa, sb...

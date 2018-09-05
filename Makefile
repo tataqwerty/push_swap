@@ -6,7 +6,7 @@
 #    By: tkiselev <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/05 10:43:18 by tkiselev          #+#    #+#              #
-#    Updated: 2018/09/05 11:48:18 by tkiselev         ###   ########.fr        #
+#    Updated: 2018/09/05 20:27:48 by tkiselev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ PUSH_SWAP_SRC_NAMES=push_swap.c\
 					preparation.c\
 					sort.c\
 					sort_router.c\
-					staff.c
+					staff.c\
+					divide_stack.c
 
 CHECKER_SRC=$(addprefix $(SRC_DIR), $(CHECKER_SRC_NAMES))
 PUSH_SWAP_SRC=$(addprefix $(SRC_DIR), $(PUSH_SWAP_SRC_NAMES))
