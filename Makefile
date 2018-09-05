@@ -6,7 +6,7 @@
 #    By: tkiselev <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/05 10:43:18 by tkiselev          #+#    #+#              #
-#    Updated: 2018/09/05 11:44:15 by tkiselev         ###   ########.fr        #
+#    Updated: 2018/09/05 11:48:18 by tkiselev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ PUSH_SWAP=push_swap
 
 SRC_DIR=./src/
 INCLUDES=includes/
-PUSH_SWAP=push_swap.h
+PUSH_SWAP_HEADER=push_swap.h
 LIBFT_DIR=libft/
 LIBFT=libft.a
 LIBFT_HEADER=libft.h
@@ -56,7 +56,7 @@ all: $(LIBFT) $(CHECKER) $(PUSH_SWAP)
 $(CHECKER): $(CHECKER_OBJ)
 	$(CC) $(CFLAGS) $(CHECKER_OBJ) -o $(CHECKER) -I $(INCLUDES) -I $(LIBFT_DIR) $(LIBFT_DIR)$(LIBFT)
 
-push_swap: $(PUSH_SWAP_OBJ)
+$(PUSH_SWAP): $(PUSH_SWAP_OBJ)
 	$(CC) $(CFLAGS) $(PUSH_SWAP_OBJ) -o $(PUSH_SWAP) -I $(INCLUDES) -I $(LIBFT_DIR) $(LIBFT_DIR)$(LIBFT)
 
 %.o: %.c $(INCLUDES)$(PUSH_SWAP_HEADER) $(LIBFT_DIR)$(LIBFT_HEADER)
