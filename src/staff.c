@@ -20,13 +20,13 @@ t_main			*init(void)
 	main_s->stack_a = init_stack();
 	main_s->stack_b = init_stack();
 	main_s->flag_debug = 0;
-	main_s->flag_show_command = 1;
+	main_s->flag_show_command = 0;
 	return (main_s);
 }
 
 void			ft_error(void)
 {
-	ft_putstr("Error\n");
+	write(2, "Error\n", 6);
 	exit(0);
 }
 

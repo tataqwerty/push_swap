@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-static char	find_pattern(t_pattern patterns[], t_main *main_s, int piece_len)
+static short	find_pattern(t_pattern patterns[], t_main *main_s, int piece_len)
 {
-	char i;
+	short i;
 
 	i = 0;
 	while (i < COUNT_PATTERNS)
@@ -14,11 +14,11 @@ static char	find_pattern(t_pattern patterns[], t_main *main_s, int piece_len)
 	return (-1);
 }
 
-static void	sort_by_pattern(t_pattern patterns[], char pattern_counter, t_main *main_s)
+static void		sort_by_pattern(t_pattern patterns[], short pattern_counter, t_main *main_s)
 {
 	t_pattern	*pattern;
 	char		*op_name;
-	char		op_counter;
+	short		op_counter;
 
 	op_counter = 0;
 	pattern = &patterns[pattern_counter];
@@ -34,7 +34,7 @@ static void	sort_by_pattern(t_pattern patterns[], char pattern_counter, t_main *
 ** @param piece_len - length of unsorted part that needs to be sorted.
 */
 
-void		sort_router(t_main *main_s, int piece_len)
+void			sort_router(t_main *main_s, int piece_len)
 {
 	static t_pattern	patterns[COUNT_PATTERNS] = {
 		{{"sa"}, 1, pattern_1},
@@ -47,7 +47,7 @@ void		sort_router(t_main *main_s, int piece_len)
 		{{"ra", "sa"}, 2, pattern_8},
 		{{"sa", "ra", "sa", "rra", "sa"}, 5, pattern_9}
 	};
-	char				pattern_counter;
+	short				pattern_counter;
 
 	if (is_sort(main_s->stack_a))
 		return ;

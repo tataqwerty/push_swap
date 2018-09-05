@@ -20,7 +20,7 @@ void	rrr(t_main *main_s)
 void	operation(char *op_name, t_main *main_s)
 {
 	unsigned char	i;
-	static t_op		operations[11] = {
+	static t_op		operations[COUNT_OPERATIONS] = {
 		{"sa", sa}, {"sb", sb}, {"ss", ss}, {"pa", pa}, 
 		{"pb", pb}, {"ra", ra}, {"rb", rb}, {"rr", rr},
 		{"rra", rra}, {"rrb", rrb}, {"rrr", rrr}
