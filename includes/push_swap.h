@@ -5,8 +5,11 @@
 # include <stdlib.h>
 # include "libft.h"
 
-# define COUNT_OPERATIONS 11
-# define COUNT_PATTERNS 9
+# define COUNT_OPERATIONS	11
+# define COUNT_PATTERNS		9
+
+# define ASC	0
+# define DESC	1
 
 /*
 ** First element of the stack - it is the top of this stack.
@@ -18,6 +21,7 @@ typedef struct		s_stack
 {
 	struct s_stack	*next;
 	int				value;
+	int				piece_counter;
 	unsigned char	sorted : 1;
 }					t_stack_list;
 
@@ -71,7 +75,6 @@ void		operation(char *op_name, t_main *main_s);
 void		output_stacks(t_stack_list *elem_a, t_stack_list *elem_b, int a_len, int b_len);
 void		sort_router(t_main *main_s, int piece_len);
 void		divide_stack(t_main *main_s, int piece_len, int median);
-
 
 /*
 ** Main stacks commands that will be used by operations such as sa, sb...
