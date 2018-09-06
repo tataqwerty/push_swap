@@ -49,9 +49,7 @@ void	sort(t_main *main_s)
 	int		piece_len;
 
 	piece_len = length_of_unsorted_part(main_s->stack_a);
-	// ft_printf("piece_len = %d\n", piece_len);
 	median = get_median(main_s->stack_a, piece_len);
-	// ft_printf("median = %d\n", median);
 	if (piece_len <= 3)
 	{
 		sort_router(main_s, piece_len);

@@ -5,7 +5,7 @@
 ** @param back_counter - how many elements have been thrown to the end of stack_a after division.
 */
 
-// static void	divide_stack(t_main *main_s, int piece_len, int median)
+// void		divide_stack(t_main *main_s, int piece_len, int median)
 // {
 // 	int				dest_counter;
 // 	int				back_counter;
@@ -49,7 +49,7 @@ static char check_ra(t_stack_list *elem, int median)
 		elem = elem->next;
 		i++;
 	}
-	last = i - last - 1;
+	last = i - last;
 	if (first <= last)
 		return (1);	// We are going to do ra.
 	else
@@ -76,7 +76,8 @@ static void	return_values_to_the_bottom(t_main *main_s, int back_counter)
 }
 
 /*
-** OPTIMIZED VERSION
+** @param dest_counter - how many elements will be transferred to dest.
+** @param back_counter - how many elements have been thrown to the end of stack_a after division.
 */
 
 void		divide_stack(t_main *main_s, int piece_len, int median)
