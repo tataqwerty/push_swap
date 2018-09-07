@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operation.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkiselev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/07 20:58:47 by tkiselev          #+#    #+#             */
+/*   Updated: 2018/09/07 20:58:49 by tkiselev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /*
@@ -21,7 +33,7 @@ void	operation(char *op_name, t_main *main_s)
 {
 	unsigned char	i;
 	static t_op		operations[COUNT_OPERATIONS] = {
-		{"sa", sa}, {"sb", sb}, {"ss", ss}, {"pa", pa}, 
+		{"sa", sa}, {"sb", sb}, {"ss", ss}, {"pa", pa},
 		{"pb", pb}, {"ra", ra}, {"rb", rb}, {"rr", rr},
 		{"rra", rra}, {"rrb", rrb}, {"rrr", rrr}
 	};

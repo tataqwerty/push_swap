@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkiselev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/07 20:59:49 by tkiselev          #+#    #+#             */
+/*   Updated: 2018/09/07 20:59:51 by tkiselev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	return_to_stack_a(t_main *main_s, int piece_len)
@@ -21,11 +33,8 @@ static void	sort_b(t_main *main_s, int piece_len)
 		return ;
 	}
 	median = get_median_of_piece(main_s->stack_b->list, piece_len);
-
 	thrown_to_stack_a = divide_piece_b(main_s, piece_len, median);
-
 	sort_a(main_s, thrown_to_stack_a);
-
 	sort_b(main_s, piece_len - thrown_to_stack_a);
 }
 
@@ -40,10 +49,7 @@ void	sort_a(t_main *main_s, int piece_len)
 		return ;
 	}
 	median = get_median_of_piece(main_s->stack_a->list, piece_len);
-
 	thrown_to_stack_b = divide_piece_a(main_s, piece_len, median);
-
 	sort_a(main_s, piece_len - thrown_to_stack_b);
-
 	sort_b(main_s, thrown_to_stack_b);
 }

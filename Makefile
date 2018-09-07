@@ -6,7 +6,7 @@
 #    By: tkiselev <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/05 10:43:18 by tkiselev          #+#    #+#              #
-#    Updated: 2018/09/07 18:41:38 by tkiselev         ###   ########.fr        #
+#    Updated: 2018/09/07 21:01:49 by tkiselev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,7 @@ clean:
 	rm -f $(CHECKER_OBJ)
 	rm -f $(PUSH_SWAP_OBJ)
 	rm -f $(RANDOMIZER)
+	rm -f $(RANDOMIZER_SRC:.c=.o)
 
 fclean:
 	make fclean -C $(LIBFT_DIR)

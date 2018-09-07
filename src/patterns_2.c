@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   patterns_2.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkiselev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/07 20:59:20 by tkiselev          #+#    #+#             */
+/*   Updated: 2018/09/07 20:59:22 by tkiselev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /*
@@ -6,7 +18,7 @@
 ** 2
 */
 
-char pattern_6(t_stack *stack, int piece_len)
+char	pattern_6(t_stack *stack, int piece_len)
 {
 	int a;
 	int b;
@@ -30,7 +42,7 @@ char pattern_6(t_stack *stack, int piece_len)
 ** something here
 */
 
-char pattern_7(t_stack *stack, int piece_len)
+char	pattern_7(t_stack *stack, int piece_len)
 {
 	int a;
 	int b;
@@ -53,7 +65,7 @@ char pattern_7(t_stack *stack, int piece_len)
 ** 1
 */
 
-char pattern_8(t_stack *stack, int piece_len)
+char	pattern_8(t_stack *stack, int piece_len)
 {
 	int a;
 	int b;
@@ -77,7 +89,7 @@ char pattern_8(t_stack *stack, int piece_len)
 ** something here
 */
 
-char pattern_9(t_stack *stack, int piece_len)
+char	pattern_9(t_stack *stack, int piece_len)
 {
 	int a;
 	int b;

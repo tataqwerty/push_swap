@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_median.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkiselev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/07 20:58:34 by tkiselev          #+#    #+#             */
+/*   Updated: 2018/09/07 20:58:35 by tkiselev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	find_idx(int arr[], int arr_len, int value)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < arr_len)
@@ -26,7 +38,7 @@ static void	ft_swap(int *a, int *b)
 /*
 ** If pivot_idx == median_idx, then median == pivot.
 **
-** else if pivot_idx > median_idx, then median is in the left side, 
+** else if pivot_idx > median_idx, then median is in the left side,
 ** so I call find_median recursively with params of this array,
 ** but limits the size of this array just to the pivot_idx.
 **
@@ -35,7 +47,7 @@ static void	ft_swap(int *a, int *b)
 ** and median_idx also reduce on pivot_idx.
 */
 
-static int find_median(int arr[], int arr_len, int median_idx)
+static	int	find_median(int arr[], int arr_len, int median_idx)
 {
 	int pivot;
 	int pivot_idx;
@@ -65,7 +77,7 @@ static int find_median(int arr[], int arr_len, int median_idx)
 int			get_median_of_piece(t_stack_list *elem, int piece_len)
 {
 	int				arr[piece_len];
-	int 			i;
+	int				i;
 
 	i = 0;
 	while (elem && i < piece_len)

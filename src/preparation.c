@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   preparation.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkiselev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/07 20:59:26 by tkiselev          #+#    #+#             */
+/*   Updated: 2018/09/07 20:59:27 by tkiselev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static char		has_duplicate(t_stack *stack, int number)
+static	char	has_duplicate(t_stack *stack, int number)
 {
 	t_stack_list *list;
 
@@ -14,7 +26,7 @@ static char		has_duplicate(t_stack *stack, int number)
 	return (0);
 }
 
-static void		push_back(t_stack *stack, int value)
+static	void	push_back(t_stack *stack, int value)
 {
 	t_stack_list *tmp;
 	t_stack_list *new;
@@ -33,7 +45,7 @@ static void		push_back(t_stack *stack, int value)
 	stack->len++;
 }
 
-static void		parse_arg(t_main *main_s, char *arg)
+static	void	parse_arg(t_main *main_s, char *arg)
 {
 	char	**arguments;
 	int		i;
@@ -51,7 +63,7 @@ static void		parse_arg(t_main *main_s, char *arg)
 		free(arguments[i]);
 		i++;
 	}
-	free(arguments);	
+	free(arguments);
 }
 
 void			parsing(t_main *main_s, int ac, char **av)
