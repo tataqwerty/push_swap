@@ -62,14 +62,12 @@ static int find_median(int arr[], int arr_len, int median_idx)
 		return (pivot);
 }
 
-int			get_median_of_piece(t_stack *stack, int piece_len)
+int			get_median_of_piece(t_stack_list *elem, int piece_len)
 {
-	t_stack_list	*elem;
 	int				arr[piece_len];
 	int 			i;
 
 	i = 0;
-	elem = stack->list;
 	while (elem && i < piece_len)
 	{
 		arr[i] = elem->value;

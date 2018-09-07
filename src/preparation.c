@@ -26,8 +26,6 @@ static void		push_back(t_stack *stack, int value)
 	(!new) ? ft_error() : 0;
 	new->next = NULL;
 	new->value = value;
-	new->piece_counter = 0;
-	new->sorted = 0;
 	if (tmp)
 		tmp->next = new;
 	else

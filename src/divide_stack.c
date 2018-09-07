@@ -2,108 +2,159 @@
 
 /*
 ** @param dest_counter - how many elements will be transferred to dest.
-** @param back_counter - how many elements have been thrown to the end of stack_a after division.
+** @param back_counter - how many elements have been thrown to the end of stack after division.
 */
 
-// void		divide_stack(t_main *main_s, int piece_counter, int piece_len, int median)
-// {
-// 	int				dest_counter;
-// 	int				back_counter;
+static char	ra_better_than_rra(t_stack_list *elem, int median)
+{
+	int first;
+	int last;
+	int i;
 
-// 	back_counter = 0;
-// 	dest_counter = piece_len / 2;
-// 	while (dest_counter > 0)
-// 	{
-// 		if (main_s->stack_a->list->value < median)	// If first elem of stack_a has a value that lower than median => throw this elem to stack_b.
-// 		{
-// 			operation("pb", main_s);
-// 			dest_counter--;
-// 			piece_len--;
-// 		}
-// 		else
-// 		{
-// 			operation("ra", main_s);
-// 			back_counter++;
-// 		}
-// 	}
-// 	if (back_counter != 0 && back_counter != main_s->stack_a->len)	// If there are elements have been thrown to the end of stack_a, return this elements to the initial position, if needed.
-// 		while (back_counter-- > 0)
-// 			operation("rra", main_s);
-// }
+	first = -1;
+	last = -1;
+	i = 0;
+	while (elem)
+	{
+		if (first == -1 && elem->value < median)
+			first = i;
+		if (elem->value < median)
+			last = i;
+		elem = elem->next;
+		i++;
+	}
+	last = i - last;
+	if (first <= last)
+		return (1);
+	else
+		return (0);
+}
 
-// static char check_ra(t_stack_list *elem, int median)
-// {
-// 	int i;
-// 	int first;
-// 	int last;
+static void	return_back_a(t_main *main_s, int back_counter)
+{
+	if (back_counter < 0)
+		back_counter = main_s->stack_a->len + back_counter;
+	while (back_counter != 0 && back_counter != main_s->stack_a->len)
+	{
+		if ((main_s->stack_a->len - back_counter) < back_counter)
+		{
+			operation("ra", main_s);
+			back_counter++;
+		}
+		else
+		{
+			operation("rra", main_s);
+			back_counter--;
+		}
+	}
+}
 
-// 	first = -1;
-// 	last = -1;
-// 	i = 0;
-// 	while (elem)
-// 	{
-// 		if (first == -1 && elem->value < median)
-// 			first = i;
-// 		if (elem->value < median)
-// 			last = i;
-// 		elem = elem->next;
-// 		i++;
-// 	}
-// 	last = i - last;
-// 	if (first <= last)
-// 		return (1);	// We are going to do ra.
-// 	else
-// 		return (0);	// We are going to do rra.
-// }
+/*
+** Returns how many elements have been thrown to stack_b.
+*/
 
-// static void	return_values_to_the_bottom(t_main *main_s, int back_counter)
-// {
-// 	if (back_counter < 0)
-// 		back_counter = main_s->stack_a->len + back_counter;
-// 	while (back_counter != 0 && back_counter != main_s->stack_a->len)
-// 	{
-// 		if ((main_s->stack_a->len - back_counter) < back_counter)
-// 		{
-// 			operation("ra", main_s);
-// 			back_counter++;
-// 		}
-// 		else
-// 		{
-// 			operation("rra", main_s);
-// 			back_counter--;
-// 		}
-// 	}
-// }
+int	divide_piece_a(t_main *main_s, int piece_len, int median)
+{
+	int dest_counter;
+	int back_counter;
 
+	dest_counter = piece_len / 2;
+	back_counter = 0;
+	while (dest_counter > 0)
+	{
+		if (main_s->stack_a->list->value < median)
+		{
+			operation("pb", main_s);
+			dest_counter--;
+		}
+		else if (ra_better_than_rra(main_s->stack_a->list, median))
+		{
+			operation("ra", main_s);
+			back_counter++;
+		}
+		else
+		{
+			operation("rra", main_s);
+			(main_s->stack_a->list->value >= median) ? back_counter-- : 0;
+		}
+	}
+	return_back_a(main_s, back_counter);
+	return (piece_len / 2);
+}
 
-// ** @param dest_counter - how many elements will be transferred to dest.
-// ** @param back_counter - how many elements have been thrown to the end of stack_a after division.
+static char	rb_better_than_rrb(t_stack_list *elem, int median)
+{
+	int first;
+	int last;
+	int i;
 
+	first = -1;
+	last = -1;
+	i = 0;
+	while (elem)
+	{
+		if (first == -1 && elem->value >= median)
+			first = i;
+		if (elem->value >= median)
+			last = i;
+		elem = elem->next;
+		i++;
+	}
+	last = i - last;
+	if (first <= last)
+		return (1);
+	else
+		return (0);
+}
 
-// void		divide_stack(t_main *main_s, int piece_len, int median)
-// {
-// 	int				dest_counter;
-// 	int				back_counter;
+static void	return_back_b(t_main *main_s, int back_counter)
+{
+	if (back_counter < 0)
+		back_counter = main_s->stack_b->len + back_counter;
+	while (back_counter != 0 && back_counter != main_s->stack_b->len)
+	{
+		if ((main_s->stack_b->len - back_counter) < back_counter)
+		{
+			operation("rb", main_s);
+			back_counter++;
+		}
+		else
+		{
+			operation("rrb", main_s);
+			back_counter--;
+		}
+	}
+}
 
-// 	back_counter = 0;
-// 	dest_counter = piece_len / 2;
-// 	while (dest_counter > 0)
-// 	{
-// 		if (main_s->stack_a->list->value < median)
-// 		{
-// 			operation("pb", main_s);
-// 			dest_counter--;
-// 		}
-// 		else if (check_ra(main_s->stack_a->list, median))
-// 		{
-// 			operation("ra", main_s);
-// 			back_counter++;
-// 		}
-// 		else
-// 		{
-// 			operation("rra", main_s);
-// 			(main_s->stack_a->list->value >= median) ? back_counter-- : 0;	// If a value that just have been added to the top of the stack_a is lower than the median, then I don't need to return this value, else if thie value is greater or equal to median, then I must return this value to the bottom.
-// 		}
-// 	}
-// 	return_values_to_the_bottom(main_s, back_counter);
-// }
+/*
+** Returns how many elements have been thrown to stack_a.
+*/
+
+int	divide_piece_b(t_main *main_s, int piece_len, int median)
+{
+	int dest_counter;
+	int back_counter;
+
+	dest_counter = piece_len - (piece_len / 2);
+	back_counter = 0;
+	while (dest_counter > 0)
+	{
+		if (main_s->stack_b->list->value >= median)
+		{
+			operation("pa", main_s);
+			dest_counter--;
+		}
+		else if (rb_better_than_rrb(main_s->stack_b->list, median))
+		{
+			operation("rb", main_s);
+			back_counter++;
+		}
+		else
+		{
+			operation("rrb", main_s);
+			(main_s->stack_b->list->value < median) ? back_counter-- : 0;
+		}
+	}
+	return_back_b(main_s, back_counter);
+	return (piece_len - (piece_len / 2));
+}
