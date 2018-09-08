@@ -35,7 +35,7 @@ typedef struct		s_stack
 ** @param letter - represents letter of a stack (a || b).
 */
 
-typedef struct		s_stack
+typedef struct
 {
 	t_stack_list	*list;
 	int				len;

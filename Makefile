@@ -6,7 +6,7 @@
 #    By: tkiselev <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/05 10:43:18 by tkiselev          #+#    #+#              #
-#    Updated: 2018/09/07 21:01:49 by tkiselev         ###   ########.fr        #
+#    Updated: 2018/09/08 12:57:04 by tkiselev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ PUSH_SWAP_SRC_NAMES=push_swap.c\
 					sort.c\
 					sort_router.c\
 					staff.c\
-					divide_stack.c
+					divide_stack_a.c\
+					divide_stack_b.c
 
 RANDOMIZER_SRC=$(SRC_DIR)randomizer.c
 

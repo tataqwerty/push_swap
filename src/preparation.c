@@ -81,6 +81,7 @@ void			parsing(t_main *main_s, int ac, char **av)
 				parse_arg(main_s, av[i]);
 			i++;
 		}
+		(!main_s->stack_a->list) ? ft_error() : 0;
 	}
 	else
 		ft_error();

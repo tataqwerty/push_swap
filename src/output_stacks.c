@@ -17,6 +17,8 @@ static int	length_of_num(int n)
 	int len;
 
 	len = 1;
+	if (n < 0)
+		len++;
 	while ((n /= 10))
 		len++;
 	return (len);
@@ -45,19 +47,19 @@ void		output_stacks(t_stack_list *elem_a, t_stack_list *elem_b, int a_len, int b
 	max_len_num = get_max_len_num(elem_a);
 	while (a_len > b_len)
 	{
-		ft_printf("%d\n", elem_a->value);
+		ft_printf("%-d\n", elem_a->value);
 		elem_a = elem_a->next;
 		a_len--;
 	}
 	while (b_len > a_len)
 	{
-		ft_printf("%*s %d\n", max_len_num, " ", elem_b->value);
+		ft_printf("%*s %-d\n", max_len_num, " ", elem_b->value);
 		elem_b = elem_b->next;
 		b_len--;
 	}
 	while (a_len > 0 && b_len > 0)
 	{
-		ft_printf("%*d %d\n", max_len_num, elem_a->value, elem_b->value);
+		ft_printf("%-*d %-d\n", max_len_num, elem_a->value, elem_b->value);
 		elem_a = elem_a->next;
 		elem_b = elem_b->next;
 		a_len--;
